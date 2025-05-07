@@ -6,25 +6,30 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <!-- <h1>实时工资计算器</h1> -->
 
   <div id="inputSection">
     <div class="input-group">
-      <label for="hourlyRate">每小时工资（元）：</label>
-      <input type="number" id="hourlyRate" placeholder="例如 50">
+      <label for="monthlySalary">月薪（元）：</label>
+      <input type="number" id="monthlySalary" placeholder="例如 10000">
     </div>
 
     <div class="input-group">
-      <label for="startTime">开始工作时间（小时:分钟）：</label>
+      <label for="startTime">上班时间：</label>
       <input type="time" id="startTime" value="09:00">
+    </div>
+
+    <div class="input-group">
+      <label for="endTime">下班时间：</label>
+      <input type="time" id="endTime" value="18:00">
     </div>
 
     <button onclick="startTracking()">开始计算</button>
   </div>
 
   <div id="result" style="display:none;">
-    <p>今天上了：<span id="timeElapsed">0 秒</span></p>
+    <p>今天已工作：<span id="timeElapsed">0 秒</span></p>
     <p>今天赚了：<span class="money" id="money">0</span> 元</p>
+    <p>距离下班还有：<span id="timeToOff">0 秒</span></p>
   </div>
 
   <script src="./script.js"></script>
