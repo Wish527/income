@@ -3,37 +3,52 @@ let timer = null;
 function startTracking() {
   if (timer) clearInterval(timer);
 
-  const rate = parseFloat(document.getElementById('hourlyRate').value);
-  const timeInput = document.getElementById('startTime').value;
+  const salary = parseFloat(document.getElementById('monthlySalary').value);
+  const startInput = document.getElementById('startTime').value;
+  const endInput = document.getElementById('endTime').value;
 
-  if (isNaN(rate) || !timeInput) {
-    alert("请填写工资和时间！");
+  if (isNaN(salary) || !startInput || !endInput) {
+    alert("请填写完整信息！");
     return;
   }
 
-  const [hours, minutes] = timeInput.split(':').map(Number);
-  const startTime = new Date();
-  startTime.setHours(hours, minutes, 0, 0);
+  const rate = salary / (21.75 * 8); // 每小时工资，按21.75天计算
 
-  // 隐藏输入部分
+  const [startH, startM] = startInput.split(':').map(Number);
+  const [endH, endM] = endInput.split(':').map(Number);
+
+  const now = new Date();
+  const startTime = new Date(now);
+  startTime.setHours(startH, startM, 0, 0);
+
+  const endTime = new Date(now);
+  endTime.setHours(endH, endM, 0, 0);
+
   document.getElementById('inputSection').style.display = 'none';
-
-  // 显示计算结果部分
   document.getElementById('result').style.display = 'block';
 
   function update() {
     const now = new Date();
-    const hoursWorked = Math.floor((now - startTime) / 1000 / 3600);  // 已工作小时数
-    const minutesWorked = Math.floor((now - startTime) / 1000 / 60) - hoursWorked * 60;  // 已工作分钟数
-    const secondsWorked = Math.floor((now - startTime) / 1000) - hoursWorked * 3600 - minutesWorked * 60;  // 已工作秒数
-    if (secondsWorked < 0) return; // 还没到上班时间
+    const secondsPassed = Math.floor((now - startTime) / 1000);
+    if (secondsPassed < 0) return;
 
-    const total_seconds = Math.floor((now - startTime) / 1000);
+    const hours = Math.floor(secondsPassed / 3600);
+    const minutes = Math.floor(secondsPassed / 60) % 60;
+    const seconds = secondsPassed % 60;
 
-    const earned = (total_seconds / 3600 * rate).toFixed(2);
-
-    document.getElementById('timeElapsed').innerText = hoursWorked + ' 时 ' + minutesWorked + ' 分 ' + secondsWorked + ' 秒 ';
+    const earned = (secondsPassed / 3600 * rate).toFixed(2);
+    document.getElementById('timeElapsed').innerText = `${hours} 时 ${minutes} 分 ${seconds} 秒`;
     document.getElementById('money').innerText = earned;
+
+    const secondsToOff = Math.floor((endTime - now) / 1000);
+    if (secondsToOff >= 0) {
+      const h = Math.floor(secondsToOff / 3600);
+      const m = Math.floor(secondsToOff / 60) % 60;
+      const s = secondsToOff % 60;
+      document.getElementById('timeToOff').innerText = `${h} 时 ${m} 分 ${s} 秒`;
+    } else {
+      document.getElementById('timeToOff').innerText = `已下班`;
+    }
   }
 
   update();
