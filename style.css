@@ -1,26 +1,18 @@
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
-    padding: 2rem;
-    background: #f7f7f7;
-  }
-  
-  .container {
-    max-width: 400px;
-    margin: auto;
-  }
-  
-  input, button {
-    padding: 10px;
-    margin-top: 1rem;
-    width: 100%;
-    font-size: 1rem;
-  }
-  
-  #result {
-    margin-top: 2rem;
-    font-weight: bold;
-    color: #333;
-    white-space: pre-line;
-  }
-  
+    margin-top: 50px;
+}
+
+.input-group {
+    margin: 20px;
+}
+
+.money {
+    font-size: 1em;
+    color: rgb(128, 115, 0);
+}
+
+#inputSection {
+    margin-bottom: 30px;
+}
