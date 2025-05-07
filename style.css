@@ -2,17 +2,18 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin-top: 50px;
-}
-
-.input-group {
+  }
+  
+  .input-group {
     margin: 20px;
-}
-
-.money {
-    font-size: 1em;
+  }
+  
+  .money {
+    font-size: 1.2em;
     color: rgb(128, 115, 0);
-}
-
-#inputSection {
+  }
+  
+  #inputSection {
     margin-bottom: 30px;
-}
+  }
+  
