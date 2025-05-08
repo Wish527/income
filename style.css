@@ -1,19 +1,18 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
-  }
+    font-family: Arial, sans-serif; /* 设置字体 */
+    text-align: center;             /* 文本居中 */
+    margin-top: 50px;               /* 顶部空隙 */
+}
   
-  .input-group {
-    margin: 20px;
-  }
+.input-group {
+    margin: 20px;                   /* 输入项之间间距 */
+}
   
-  .money {
-    font-size: 1.2em;
-    color: rgb(128, 115, 0);
-  }
+.money {
+    font-size: 1.2em;               /* 工资数额放大 */
+    color: rgb(128, 115, 0);        /* 金色字体 */
+}
   
-  #inputSection {
-    margin-bottom: 30px;
-  }
-  
+#inputSection {
+    margin-bottom: 30px;            /* 与结果区域分隔距离 */
+}
