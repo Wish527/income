@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>实时工资计算器</title>
-  <!-- 引入外部 CSS 样式 -->
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -11,42 +10,37 @@
   <!-- 输入区域 -->
   <div id="inputSection">
     <div class="input-group">
-      <!-- 输入月薪 -->
       <label for="monthlySalary">月薪（元）：</label>
       <input type="number" id="monthlySalary" placeholder="例如 10000">
     </div>
 
     <div class="input-group">
-      <!-- 输入上班时间 -->
       <label for="startTime">上班时间：</label>
       <input type="time" id="startTime" value="09:00">
     </div>
 
     <div class="input-group">
-      <!-- 输入下班时间 -->
       <label for="endTime">下班时间：</label>
       <input type="time" id="endTime" value="18:00">
     </div>
 
     <div class="input-group">
-      <!-- 输入午休时间段 -->
       <label for="lunchBreak">午休时间段：</label>
       <input type="time" id="lunchBreakStart" value="12:00"> ~ 
       <input type="time" id="lunchBreakEnd" value="13:00">
     </div>
 
-    <!-- 点击后开始实时计算 -->
     <button onclick="startTracking()">开始计算</button>
   </div>
 
-  <!-- 计算结果展示区域，默认隐藏 -->
+  <!-- 计算结果展示区域 -->
   <div id="result" style="display:none;">
     <p>有效工时：<span id="timeElapsed">0 秒</span></p>
     <p>今天赚了：<span class="money" id="money">0</span> 元</p>
     <p>距离下班还有：<span id="timeToOff">0 秒</span></p>
+    <button onclick="goBack()">返回修改</button>
   </div>
 
-  <!-- 引入 JavaScript 脚本 -->
   <script src="./script.js"></script>
 </body>
 </html>
